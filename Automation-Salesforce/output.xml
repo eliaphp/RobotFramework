@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181113 16:54:11.660" generator="Robot 3.0.2 (Python 2.7.14 on win32)">
+<suite source="C:\Automation-Salesforce\Salesforce" id="s1" name="Salesforce">
+<suite source="C:\Automation-Salesforce\Salesforce\Tests" id="s1-s1" name="Tests">
+<kw type="setup" name="Open Browser" library="Common">
+<kw name="Open Chrome" library="Common">
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+</arguments>
+<assign>
+<var>${options}</var>
+</assign>
+<msg timestamp="20181113 16:54:16.558" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x03FEE590&gt;</msg>
+<status status="PASS" endtime="20181113 16:54:16.558" starttime="20181113 16:54:16.556"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>disable-infobars</arg>
+</arguments>
+<status status="PASS" endtime="20181113 16:54:16.561" starttime="20181113 16:54:16.559"></status>
+</kw>
+<kw name="Create Webdriver" library="Selenium2Library">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+<arg>chrome_options=${options}</arg>
+</arguments>
+<msg timestamp="20181113 16:54:16.564" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" endtime="20181113 16:54:34.096" starttime="20181113 16:54:16.562"></status>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${LOGIN URL}</arg>
+</arguments>
+<msg timestamp="20181113 16:54:34.097" level="INFO">Opening url 'https://www.salesforce.com/mx/form/signup/sales-cloud/freetrial-sales-essentials//'</msg>
+<status status="PASS" endtime="20181113 16:54:47.656" starttime="20181113 16:54:34.097"></status>
+</kw>
+<status status="PASS" endtime="20181113 16:54:47.657" starttime="20181113 16:54:16.548"></status>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181113 16:54:48.668" starttime="20181113 16:54:47.658"></status>
+</kw>
+<kw name="Set Selenium Speed" library="Selenium2Library">
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<arguments>
+<arg>${DELAY}</arg>
+</arguments>
+<status status="PASS" endtime="20181113 16:54:48.670" starttime="20181113 16:54:48.668"></status>
+</kw>
+<kw name="Login Page Should Be Open" library="Common">
+<kw name="Title Should Be" library="Selenium2Library">
+<doc>Verifies that current page title equals ``title``.</doc>
+<arguments>
+<arg>Sales Essentials : Free Trial</arg>
+</arguments>
+<msg timestamp="20181113 16:54:48.686" level="INFO">Page title is 'Sales Essentials : Free Trial'.</msg>
+<status status="PASS" endtime="20181113 16:54:48.687" starttime="20181113 16:54:48.671"></status>
+</kw>
+<status status="PASS" endtime="20181113 16:54:48.687" starttime="20181113 16:54:48.670"></status>
+</kw>
+<status status="PASS" endtime="20181113 16:54:48.687" starttime="20181113 16:54:16.546"></status>
+</kw>
+<suite source="C:\Automation-Salesforce\Salesforce\Tests\Register.robot" id="s1-s1-s1" name="Register">
+<test id="s1-s1-s1-t1" name="Verify message in frre trial">
+<kw name="Register to start a free trial" library="Form">
+<arguments>
+<arg>${username}</arg>
+<arg>${userlast}</arg>
+<arg>${usertitle}</arg>
+<arg>${usermail}</arg>
+<arg>${userphone}</arg>
+<arg>${usercompany}</arg>
+</arguments>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txtName}</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20181113 16:54:51.127" level="INFO">Typing text 'Elia' into text field 'id=UserFirstName'.</msg>
+<status status="PASS" endtime="20181113 16:54:51.668" starttime="20181113 16:54:51.126"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txtLast}</arg>
+<arg>${userlast}</arg>
+</arguments>
+<msg timestamp="20181113 16:54:51.671" level="INFO">Typing text 'PHP' into text field 'id=UserLastName'.</msg>
+<status status="PASS" endtime="20181113 16:54:52.106" starttime="20181113 16:54:51.669"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txtTitle}</arg>
+<arg>${usertitle}</arg>
+</arguments>
+<msg timestamp="20181113 16:54:52.109" level="INFO">Typing text 'Automation' into text field 'id=UserTitle'.</msg>
+<status status="PASS" endtime="20181113 16:54:52.694" starttime="20181113 16:54:52.107"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txtMail}</arg>
+<arg>${usermail}</arg>
+</arguments>
+<msg timestamp="20181113 16:54:52.697" level="INFO">Typing text 'elia.herrera@globant.com' into text field 'id=UserEmail'.</msg>
+<status status="PASS" endtime="20181113 16:54:53.748" starttime="20181113 16:54:52.695"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txtPhone}</arg>
+<arg>${userphone}</arg>
+</arguments>
+<msg timestamp="20181113 16:54:53.751" level="INFO">Typing text '5573354717' into text field 'id=UserPhone'.</msg>
+<status status="PASS" endtime="20181113 16:54:54.394" starttime="20181113 16:54:53.749"></status>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${txtCompany}</arg>
+<arg>${usercompany}</arg>
+</arguments>
+<msg timestamp="20181113 16:54:54.396" level="INFO">Typing text 'Globant' into text field 'id=CompanyName'.</msg>
+<status status="PASS" endtime="20181113 16:54:54.918" starttime="20181113 16:54:54.395"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${chkSubscription}</arg>
+</arguments>
+<msg timestamp="20181113 16:54:54.920" level="INFO">Clicking element 'id=SubscriptionAgreement'.</msg>
+<status status="PASS" endtime="20181113 16:54:55.234" starttime="20181113 16:54:54.919"></status>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>${slctBox}</arg>
+</arguments>
+<msg timestamp="20181113 16:54:55.236" level="INFO">Clicking element 'xpath=((//span[@class='selectBox-arrow'])[1])'.</msg>
+<status status="PASS" endtime="20181113 16:54:55.557" starttime="20181113 16:54:55.235"></status>
+</kw>
+<kw name="Select From List By Index" library="Selenium2Library">
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<arguments>
+<arg>${slctEmploy}</arg>
+<arg>${random}</arg>
+</arguments>
+<assign>
+<var>${item}</var>
+</assign>
+<msg timestamp="20181113 16:54:55.562" level="FAIL">Variable '${random}' not found.</msg>
+<status status="FAIL" endtime="20181113 16:54:55.562" starttime="20181113 16:54:55.558"></status>
+</kw>
+<status status="FAIL" endtime="20181113 16:54:55.563" starttime="20181113 16:54:51.123"></status>
+</kw>
+<tags>
+<tag>Star</tag>
+<tag>Start</tag>
+</tags>
+<status status="FAIL" endtime="20181113 16:54:55.565" critical="yes" starttime="20181113 16:54:51.119">Variable '${random}' not found.</status>
+</test>
+<doc>Suite description</doc>
+<status status="FAIL" endtime="20181113 16:54:55.571" starttime="20181113 16:54:48.688"></status>
+</suite>
+<kw type="teardown" name="Close All Browsers" library="Selenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20181113 16:54:59.016" starttime="20181113 16:54:55.582"></status>
+</kw>
+<status status="FAIL" endtime="20181113 16:54:59.017" starttime="20181113 16:54:11.870"></status>
+</suite>
+<status status="FAIL" endtime="20181113 16:54:59.028" starttime="20181113 16:54:11.691"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="1" pass="0">Star</stat>
+<stat fail="1" pass="0">Start</stat>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Salesforce" pass="0">Salesforce</stat>
+<stat fail="1" id="s1-s1" name="Tests" pass="0">Salesforce.Tests</stat>
+<stat fail="1" id="s1-s1-s1" name="Register" pass="0">Salesforce.Tests.Register</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
